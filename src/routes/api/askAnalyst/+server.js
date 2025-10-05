@@ -19,9 +19,10 @@ export async function POST({ request }) {
   ];
 
   try {
-    // --- THIS IS THE CORRECTED URL ---
+    // The URL from the cURL command
     const CEREBRAS_API_URL = "https://api.cerebras.ai/v1/chat/completions";
-    const CEREBRAS_MODEL_NAME = "llama-4-scout-17b-16e-instruct";
+    // THE CORRECTED MODEL NAME from the cURL command
+    const CEREBRAS_MODEL_NAME = "gpt-oss-120b"; 
 
     const response = await axios.post(CEREBRAS_API_URL, {
       model: CEREBRAS_MODEL_NAME,
