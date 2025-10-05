@@ -1,11 +1,8 @@
 import { json } from '@sveltejs/kit';
 import axios from 'axios';
 
-// IMPORTANT: This securely reads the API key you will set in Vercel's website.
-// It is NOT exposed to the user.
 const CEREBRAS_API_KEY = import.meta.env.VITE_CEREBRAS_API_KEY;
 
-// This is the new backend function
 export async function POST({ request }) {
   const { message, history } = await request.json();
 
@@ -22,7 +19,8 @@ export async function POST({ request }) {
   ];
 
   try {
-    const CEREBRAS_API_URL = "https://cloud.cerebras.ai/v1/chat/completions";
+    // --- THIS IS THE CORRECTED URL ---
+    const CEREBRAS_API_URL = "https://api.cerebras.ai/v1/chat/completions";
     const CEREBRAS_MODEL_NAME = "llama-4-scout-17b-16e-instruct";
 
     const response = await axios.post(CEREBRAS_API_URL, {
